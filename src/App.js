@@ -10,10 +10,10 @@ function App() {
 
   const numInput = (e) => {
     if (e.target.innerText === "." && current.includes(".")) return;
+
     current
       ? setCurrent((prev) => prev + e.target.innerText)
       : setCurrent(e.target.innerText);
-    console.log(current);
   };
   useEffect(() => {
     setResult(current);
@@ -24,13 +24,14 @@ function App() {
 
   const handlerOperator = (e) => {
     setOperator(e.target.innerText);
-    console.log(operator);
+
     if (current === "") return;
     if (previous !== "") {
-      equal();
+      calcResult(operator, current, previous);
+    } else {
+      setPrevious(current);
+      setCurrent("");
     }
-    setPrevious(current);
-    setCurrent("");
 
     console.log(previous);
   };
@@ -60,14 +61,11 @@ function App() {
 
     setCurrent("");
     setPrevious(calc);
-    setResult(current);
-
-    console.log(current);
-    console.log(previous);
+    setResult("");
   };
 
   const equal = (e) => {
-    if (e.target.innerText === "=") {
+    if (e?.target.innerText === "=") {
       calcResult(operator, current, previous);
     }
   };
