@@ -48,7 +48,7 @@ function App() {
       case "-":
         calc = num1 - num2;
         break;
-      case "*":
+      case "x":
         calc = num1 * num2;
         break;
       case "/":
@@ -94,26 +94,68 @@ function App() {
   };
   return (
     <div className="calculator-container">
-      <h1>{result !== "" || result === "0" ? result : previous}</h1>
-      <button onClick={handlerClear}>AC</button>
-      <button onClick={plusMinus}>+/-</button>
-      <button onClick={percent}>%</button>
-      <button onClick={handlerOperator}>/</button>
-      <button onClick={numInput}>7</button>
-      <button onClick={numInput}>8</button>
-      <button onClick={numInput}>9</button>
-      <button onClick={handlerOperator}>*</button>
-      <button onClick={numInput}>4</button>
-      <button onClick={numInput}>5</button>
-      <button onClick={numInput}>6</button>
-      <button onClick={handlerOperator}>-</button>
-      <button onClick={numInput}>1</button>
-      <button onClick={numInput}>2</button>
-      <button onClick={numInput}>3</button>
-      <button onClick={handlerOperator}>+</button>
-      <button onClick={numInput}>0</button>
-      <button onClick={numInput}>.</button>
-      <button onClick={equal}>=</button>
+      <div className="display-box">
+        <h1>{result !== "" || result === "0" ? result : previous}</h1>
+      </div>
+      <div className="btns-box">
+        <button className="btn btn-top" onClick={handlerClear}>
+          AC
+        </button>
+        <button className="btn btn-top" onClick={plusMinus}>
+          +/-
+        </button>
+        <button className="btn btn-top" onClick={percent}>
+          %
+        </button>
+        <button className="btn btn-operator" onClick={handlerOperator}>
+          /
+        </button>
+        <button className="btn" onClick={numInput}>
+          7
+        </button>
+        <button className="btn" onClick={numInput}>
+          8
+        </button>
+        <button className="btn" onClick={numInput}>
+          9
+        </button>
+        <button className="btn btn-operator" onClick={handlerOperator}>
+          x
+        </button>
+        <button className="btn" onClick={numInput}>
+          4
+        </button>
+        <button className="btn" onClick={numInput}>
+          5
+        </button>
+        <button className="btn" onClick={numInput}>
+          6
+        </button>
+        <button className="btn btn-operator" onClick={handlerOperator}>
+          -
+        </button>
+        <button className="btn" onClick={numInput}>
+          1
+        </button>
+        <button className="btn" onClick={numInput}>
+          2
+        </button>
+        <button className="btn" onClick={numInput}>
+          3
+        </button>
+        <button className="btn btn-operator" onClick={handlerOperator}>
+          +
+        </button>
+        <button className="btn grid-2" onClick={numInput}>
+          0
+        </button>
+        <button className="btn" onClick={numInput}>
+          .
+        </button>
+        <button className="btn btn-operator" onClick={equal}>
+          =
+        </button>
+      </div>
     </div>
   );
 }
